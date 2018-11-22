@@ -53,6 +53,8 @@ class nnv {
       this.drawNodes();
       this.drawLinks();
     }
+    fill(100,255,100,100)
+    ellipse(this.birdx,this.birdy, 32,32)
   }
 
   drawNodes(){

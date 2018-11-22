@@ -42,15 +42,15 @@ function draw() {
       pipes[i].update();
 
       for (let j = birds.length - 1; j >= 0; j--) {
-        if(birds[j].y >= Height || birds.y <= 0){
+        if(birds[j].y >= Height || birds[j].y <= 0){
           savedBirds.push(birds.splice(j, 1)[0]);
-          if(j >= 0){
-            PickNewExample(j-1);
-          }
+            if(j >= 0){
+              PickNewExample(j-1);
+            }
         } else if (pipes[i].hits(birds[j])) {
           savedBirds.push(birds.splice(j, 1)[0]);
-          if(j >= 0){
-            PickNewExample(j-1);
+            if(j >= 0){
+              PickNewExample(j-1);
           }
         }
       }
@@ -80,6 +80,9 @@ function draw() {
     pipe.show();
   }
   NNV = new nnv(ExampleBird.brain);
+  NNV.birdx = ExampleBird.x;
+  NNV.birdy = ExampleBird.y;
+
   NNV.setValues(960,240,642,482,30,30);
   NNV.draw();
 }
