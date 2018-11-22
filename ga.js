@@ -1,8 +1,8 @@
 // Neuro-Evolution Flappy Bird
 
 function nextGeneration() {
-  console.log('next generation');
   gen++;
+  console.log('Generation: ' + gen);
   calculateFitness();
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = pickOne();

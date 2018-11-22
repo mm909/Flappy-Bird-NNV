@@ -10,6 +10,7 @@ let Height = 480;
 let Width = 1280;
 let gen = 0;
 let NNV;
+let hs = 0;
 
 function PickNewExample(j){
     let temp = floor(random(0,j));
@@ -27,6 +28,7 @@ function setup() {
     birds[i].gen = gen;
     birds[i].index = i;
   }
+  console.log('Generation: ' + gen);
   PickNewExample(TOTAL);
 }
 
@@ -85,4 +87,11 @@ function draw() {
 
   NNV.setValues(960,240,642,482,30,30);
   NNV.draw();
+  fill(255)
+  if(birds[0].score > hs){
+    hs = birds[0].score;
+  }
+  text("Current Score: " + birds[0].score, 650,475)
+  text("High Score: " + hs, 650,25)
+  text("Generation: " + gen, width - 150,25)
 }

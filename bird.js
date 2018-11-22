@@ -31,7 +31,7 @@ class Bird {
   }
 
   mutate() {
-    this.brain.mutate(0.1);
+    this.brain.mutate(0.85);
   }
 
   think(pipes) {
