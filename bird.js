@@ -1,7 +1,3 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-
 // Neuro-Evolution Flappy Bird
 
 class Bird {
@@ -54,10 +50,10 @@ class Bird {
 
     let inputs = [];
     inputs[0] = this.y / height;
-    inputs[1] = closest.top / height;
-    inputs[2] = closest.bottom / height;
-    inputs[3] = closest.x / width;
-    inputs[4] = this.velocity / 40;
+    inputs[1] = this.velocity / 40;
+    inputs[2] = closest.x / width;
+    inputs[3] = closest.bottom / height;
+    inputs[4] = closest.top / height;
     this.storeInputs = inputs;
     let output = this.brain.predict(inputs);
     if (output[0] > output[1]) {

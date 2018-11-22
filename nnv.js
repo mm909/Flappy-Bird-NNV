@@ -47,7 +47,7 @@ class nnv {
   draw(){
     if(this.input_values){
       noStroke();
-      fill(200);
+      fill("#2f3640");
       rectMode(CENTER);
       rect(this.x,this.y,this.xSize,this.ySize);
       this.drawNodes();
@@ -65,6 +65,28 @@ class nnv {
       let xValue = this.x - this.xSize/2 + 0 * this.XInterval + this.XInterval/2 + this.XOffset;
       let yValue = this.YOffset + i * this.YIntervalI + this.YIntervalI/2;
       ellipse(xValue, yValue, size, size);
+      fill(255)
+      switch (i) {
+        case 0:
+        text("Bird.y", xValue - 100, yValue)
+          break;
+        case 1:
+        text("Speed", xValue - 100, yValue)
+          break;
+        case 2:
+        text("Pipe.x", xValue - 100, yValue)
+          break;
+        case 3:
+        text("Bottom", xValue - 100, yValue)
+          break;
+        case 4:
+        text("Top", xValue - 100, yValue)
+          break;
+
+          break;
+        default:
+
+      }
     }
     for(let i = 0; i < this.hiddenSize; i++){
       this.color = this.getColor(this.hidden_values[i],false);
@@ -81,6 +103,13 @@ class nnv {
       let xValue = this.x - this.xSize/2 + 2 * this.XInterval + this.XInterval/2 + this.XOffset;
       let yValue = this.YOffset + i * this.YIntervalO + this.YIntervalO/2;
       ellipse(xValue, yValue, size, size);
+      textSize(20);
+      fill(255);
+      if(i == 0){
+        text("Jump!", xValue + 30, yValue + 16)
+      } else {
+        text("No Jump!", xValue + 30, yValue + 16)
+      }
     }
   }
 
@@ -139,9 +168,10 @@ class nnv {
       y2 = this.YOffset + i * this.YIntervalO + this.YIntervalO/2;
     }
 
-    stroke(0);
+    stroke(150,150,255);
     strokeWeight(abs(weights[i][j]) * 2);
     line(x1,y1,x2,y2);
+    noStroke();
   }
 
   getColor(val, output){
